@@ -36,4 +36,15 @@ app.use(function (err, req, res, next) {
     res.render('error');
 });
 
+const dbUrl = "mongodb://127.0.0.1:27017/urlDB";
+
+// connect to database
+mongoose.connect(dbUrl)
+  .then(() => {
+    console.log("Connected to database");
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+  
 module.exports = app;
