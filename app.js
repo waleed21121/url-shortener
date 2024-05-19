@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index');
 
@@ -46,5 +47,5 @@ mongoose.connect(dbUrl)
   .catch((err) => {
     console.error(err);
   });
-  
+
 module.exports = app;
