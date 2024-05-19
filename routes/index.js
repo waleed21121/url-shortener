@@ -31,7 +31,7 @@ router.post('/', async function (req, res) {
     });
 
     await newUrlShortener.save();
-    res.redirect(req.body.urlInput);
+    res.redirect('/');
 });
 
 module.exports = router;
