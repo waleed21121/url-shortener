@@ -9,4 +9,17 @@ router.get('/', async function (req, res, next) {
     res.render('index', { title: 'Express' });
 });
 
+// Add new url and its Alias
+router.post('/', async function (req, res, next) {
+
+    const newUrlShortener = new urlSchema({
+
+        originalUrl: req.body.urlInput, 
+        shortUrl: req.body.aliasInput
+
+    });
+
+    await newUrlShortener.save();
+    res.redirect(req.body.urlInput);
+});
 module.exports = router;
